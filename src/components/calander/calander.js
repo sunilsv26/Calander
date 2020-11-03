@@ -5,6 +5,7 @@ import Year from "./yearHeader/year";
 import Month from "./mothHeader/month";
 import DayNames from "./dayHeader/day";
 import Dates from "./datesHolder/date";
+import year from "./yearHeader/year";
 
 const months = [
     "January",
@@ -33,7 +34,6 @@ class Calander extends Component {
     let firstDay = new Date(year, month).getDay();
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
     let dates = new Array(firstDay).fill("");
-    console.log(dates);
     for (let i = 1; i <= daysInMonth; i++) {
       dates.push(i);
     }
@@ -55,14 +55,18 @@ class Calander extends Component {
   };
 
   yearInputChangeHandler = (event) => {
-    this.setState({ year: event.target.value });
+    let currMonthIndex = this.state.month;
+    let currYear;
+    currYear =event.target.value;
+    this.showDates(currMonthIndex,currYear)
+    this.setState({ year:+currYear,month:currMonthIndex });
   };
 
   loadPrvMonthHandler=()=>{
     let currMonthIndex = this.state.month;
     let currYear= this.state.year; 
-    currMonthIndex = currMonthIndex ===0 ? 11:currMonthIndex-1;
     currYear = currMonthIndex ===0? currYear-1:currYear;
+    currMonthIndex = currMonthIndex ===0 ? 11:currMonthIndex-1;
     this.showDates(currMonthIndex,currYear)
     this.setState({month:currMonthIndex,year:currYear})
   }
@@ -70,8 +74,9 @@ class Calander extends Component {
   loadNextMonthHandler=()=>{
     let currMonthIndex = this.state.month;
     let currYear= this.state.year; 
-    currMonthIndex = currMonthIndex ===11 ? 0:currMonthIndex+1;
     currYear = currMonthIndex ===11? currYear+1:currYear;
+    console.log(currYear);
+    currMonthIndex = currMonthIndex ===11 ? 0:currMonthIndex+1;
     this.showDates(currMonthIndex,currYear)
     this.setState({month:currMonthIndex,year:currYear})
   }
