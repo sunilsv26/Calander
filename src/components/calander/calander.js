@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 import classes from './calander.module.css';
 import Year  from './yearHeader/year';
-import Month from './mothHeader/month'
+import Month from './mothHeader/month';
+import DayNames from './dayHeader/day'
 
 class Calander extends Component{
     state ={
@@ -30,6 +31,7 @@ class Calander extends Component{
                 yearChanged={this.yearInputChangeHandler} 
                 today={this.state.today}/>
                 <Month month={this.state.month} />
+                <DayNames />
             </div>
         )
     }
