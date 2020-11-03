@@ -5,7 +5,6 @@ import Year from "./yearHeader/year";
 import Month from "./mothHeader/month";
 import DayNames from "./dayHeader/day";
 import Dates from "./datesHolder/date";
-import year from "./yearHeader/year";
 
 const months = [
     "January",
@@ -24,7 +23,7 @@ const months = [
 
 class Calander extends Component {
   state = {
-    year: null,
+    year: '',
     month: "",
     dates: [],
     today: "",
