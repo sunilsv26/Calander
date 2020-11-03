@@ -5,7 +5,7 @@ import classes from './date.module.css';
 const dates = (props)=>{
     return(
         <div className={classes.Dates}>
-            {props.dates.map(date=><div key={date}>{date}</div>)}
+            {props.dates.map((date,index)=><div style={{color:(index%7===0)? "red":'none'}} key={index}>{date}</div>)}
         </div>
     )
 }
