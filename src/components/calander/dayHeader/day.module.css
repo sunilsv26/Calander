@@ -1,0 +1,7 @@
+.Day{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(7,auto);
+    margin-bottom: 10px;
+}
