@@ -4,4 +4,5 @@
     display: grid;
     grid-template-columns: repeat(7,auto);
     margin-bottom: 10px;
+    font-weight: bold;
 }
