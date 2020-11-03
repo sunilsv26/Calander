@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import classes from './calander.module.css';
+import Year  from './yearHeader/year'
 
-const calander =()=>{
-    return(
-        <div className={classes.Calander}></div>
-    )
+class Calander extends Component{
+    state ={
+        year:2020,
+    }
+
+    yearInputChangeHandler=(event)=>{
+        this.setState({year:event.target.value})
+    }
+    render(){
+        return(
+            <div className={classes.Calander}>
+                <Year year={this.state.year} yearChanged={this.yearInputChangeHandler} />
+            </div>
+        )
+    }
+    
 }
 
-export default calander;
+export default Calander;
