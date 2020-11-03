@@ -5,9 +5,9 @@ import classes from "./month.module.css";
 const month = (props) => {
   return (
     <div className={classes.Month}>
-      <button>Prev</button>
+      <button onClick={props.loadPrevMonth}>Prev</button>
       <div>{props.month}</div>
-      <button>Next</button>
+      <button onClick={props.loadNextMonth}>Next</button>
     </div>
   );
 };

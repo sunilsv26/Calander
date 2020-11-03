@@ -23,8 +23,8 @@ const months = [
 
 class Calander extends Component {
   state = {
-    year: 2020,
-    month: "November",
+    year: null,
+    month: "",
     dates: [],
     today: "",
   };
@@ -45,7 +45,8 @@ class Calander extends Component {
     let today = new Date();
     let monthIndex = today.getMonth();
     let year = today.getFullYear();
-    this.showDates(monthIndex,year)
+    this.setState({year:year,month:monthIndex})
+    this.showDates(monthIndex,year);
   }
 
   getTodayHandler = () => {
@@ -56,6 +57,25 @@ class Calander extends Component {
   yearInputChangeHandler = (event) => {
     this.setState({ year: event.target.value });
   };
+
+  loadPrvMonthHandler=()=>{
+    let currMonthIndex = this.state.month;
+    let currYear= this.state.year; 
+    currMonthIndex = currMonthIndex ===0 ? 11:currMonthIndex-1;
+    currYear = currMonthIndex ===0? currYear-1:currYear;
+    this.showDates(currMonthIndex,currYear)
+    this.setState({month:currMonthIndex,year:currYear})
+  }
+
+  loadNextMonthHandler=()=>{
+    let currMonthIndex = this.state.month;
+    let currYear= this.state.year; 
+    currMonthIndex = currMonthIndex ===11 ? 0:currMonthIndex+1;
+    currYear = currMonthIndex ===11? currYear+1:currYear;
+    this.showDates(currMonthIndex,currYear)
+    this.setState({month:currMonthIndex,year:currYear})
+  }
+
   render() {
     return (
       <div className={classes.Calander}>
@@ -64,7 +84,9 @@ class Calander extends Component {
           yearChanged={this.yearInputChangeHandler}
           today={this.state.today}
         />
-        <Month month={this.state.month} />
+        <Month month={months[this.state.month]}
+        loadPrevMonth={this.loadPrvMonthHandler}
+        loadNextMonth={this.loadNextMonthHandler} />
         <DayNames />
         <Dates dates={this.state.dates}/>
       </div>
