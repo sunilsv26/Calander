@@ -5,8 +5,9 @@ import classes from "./year.module.css";
 const year = (props) => {
   return (
     <div className={classes.Year}>
-      <button>Today</button>
+      <button onClick={props.goToday}>Go To Today</button>
       <div className={classes.Today}>{props.today}</div>
+      <div>Selected Year</div>
       <input
         type="number"
         value={props.year}

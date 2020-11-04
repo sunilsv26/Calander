@@ -1,7 +1,9 @@
 .Calander{
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: auto;
     margin: auto;
     padding: 5px;
     box-sizing: border-box;
+    background-color: white;
+    margin-top: 50px;
 }
