@@ -7,7 +7,7 @@ const year = (props) => {
     <div className={classes.Year}>
       <button onClick={props.goToday}>Go To Today</button>
       <div className={classes.Today}>{props.today}</div>
-      <div>Selected Year</div>
+      <div style={{fontWeight:'bold'}}>Selected Year</div>
       <input
         type="number"
         value={props.year}

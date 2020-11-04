@@ -1,9 +1,22 @@
 .Calander{
-    width: 70%;
+    width: 600px;
     height: auto;
     margin: auto;
-    padding: 5px;
+    padding: 15px;
     box-sizing: border-box;
     background-color: white;
     margin-top: 50px;
+    box-shadow: -3px 3px 10px rgb(0, 0, 0);
+}
+
+@media (max-width:600px){
+    .Calander{
+        width: 80%;
+    }
+}
+
+@media (max-width:300px){
+    .Calander{
+        display: none;
+    }
 }

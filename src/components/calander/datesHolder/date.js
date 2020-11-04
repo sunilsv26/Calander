@@ -10,15 +10,15 @@ const dates = (props) => {
   return (
     <div className={classes.Dates}>
       {props.dates.map((date, index) => (
-        <div
+        <p
           style={{
             color: index % 7 === 0 ? "red" : "none",
-            backgroundColor: (date===toda && yr===props.year && month ===props.month)?'steelblue':null,
+            backgroundColor: (date===toda && yr===props.year && month ===props.month)?'Highlight':null,
           }}
           key={index}
         >
           {date}
-        </div>
+        </p>
       ))}
     </div>
   );
